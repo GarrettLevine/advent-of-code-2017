@@ -74,7 +74,6 @@ func getDiff(row []int) int {
 }
 
 func getDivis(row []int) int {
-	var n1, n2 int
 	for _, n := range row {
 		for _, k := range row {
 			if n == k {
@@ -82,17 +81,14 @@ func getDivis(row []int) int {
 			}
 
 			if n%k == 0 {
-				n1 = n
-				n2 = k
+				return n / k
 			}
 
 			if k%n == 0 {
-				n1 = k
-				n2 = n
-				break
+				return k / n
 			}
 		}
 	}
 
-	return n1 / n2
+	return 0
 }
